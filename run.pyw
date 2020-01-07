@@ -11,22 +11,35 @@ root.maxsize(400,100)
 #Close program functions
 def Close(): 
     root.destroy()
-
+    create.destroy()
+    KeyInfo.destroy()
+    
 def CloseCreate():
     create.destroy()
+    KeyInfo.destroy()
 
 #Creates Minisign key
 def CreateKey():
     KeyString = e1.get()
     os.system('cmd /c "start "" minisign -G -p minisign-keys/"' + KeyString + '".pub -s minisign-keys/"' + KeyString + '".key"')
 
+    global KeyInfo
+    KeyInfo = tk.Tk()
+    KeyInfo.title("Minisign Verify")
+    KeyInfo.minsize(500,200)
+    KeyInfo.maxsize(500,200)
+
+    T = tk.Text(KeyInfo, height=2, width=30)
+    T.pack(side="left", fill="both", expand="true")
+    T.insert(tk.END, "Key created successfully!\nYou can find your key in the minisign-keys folder.")
+
 def Create():
     #Need new window to select custom path and names for keyfile
     global create
     create = tk.Tk()
     create.title("Minisign Verify")
-    create.minsize(324,26)
-    create.maxsize(324,26)
+    create.minsize(322,26)
+    create.maxsize(322,26)
 
     tk.Label(create, text="Enter Keyfile Name") .grid(row=0, column=0)
 
