@@ -8,13 +8,17 @@ root.title("Minisign Verify")
 root.minsize(400,100)
 root.maxsize(400,100)
 
-#Close program function
+#Close program functions
 def Close(): 
     root.destroy()
+
+def CloseCreate():
+    create.destroy()
 
 #Creates Minisign key
 def Create():
     #Need new window to select custom path and names for keyfile
+    global create
     create = tk.Tk()
     create.title("Minisign Verify")
     create.minsize(324,26)
@@ -25,14 +29,11 @@ def Create():
     e1 = tk.Entry(create)
     e1.grid(row=0, column=1)
 
-    #Creates a button, placed in root window
+    #Creates a button, placed in create window
     tk.Button(create, text='Create') .grid(row=0, column=3)
 
-    #Creates a button, placed in root window
-    tk.Button(create, text='Cancel') .grid(row=0, column=4)
-
-    #os.system('cmd /k "start "" minisign -G"')
-    root.mainloop()
+    #Creates a button, placed in create window
+    tk.Button(create, text='Cancel', command=CloseCreate) .grid(row=0, column=4)
 
 #Select file for upload
 def Keyfile(event=None):
