@@ -6,3 +6,5 @@ minisign-keys
 run.spec
 minisign-gui.spec
 build.bat
+*.key
+*.pub
