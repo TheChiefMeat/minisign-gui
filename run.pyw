@@ -7,6 +7,10 @@ root = tk.Tk()
 root.minsize(400,100)
 root.maxsize(400,100)
 
+#Close program function
+def Close(): 
+    root.destroy()
+
 #Select file for upload
 def Keyfile(event=None):
     global filename
@@ -18,7 +22,7 @@ def Enter():
     os.system('cmd /c "start "" ' + r'"' + filename + '"')
 
 #Creates a button, placed in root window
-button = tk.Button(root, text='Cancel')
+button = tk.Button(root, text='Cancel', command=Close)
 button.pack()
 
 #Creates a button, placed in root window
