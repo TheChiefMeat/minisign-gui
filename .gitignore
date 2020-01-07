@@ -1,2 +1,7 @@
 .vscode
+__pycache__
+build
+dist
 minisign-keys
+run.spec
+build.bat
