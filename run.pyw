@@ -8,12 +8,25 @@ root.minsize(400,100)
 root.maxsize(400,100)
 
 #Select file for upload
-def UploadAction(event=None):
+def Keyfile(event=None):
+    global filename
     filename = filedialog.askopenfilename()
     print('Selected:', filename)
 
+#Runs selected file
+def Enter():
+    os.system('cmd /c "start "" ' + r'"' + filename + '"')
+
 #Creates a button, placed in root window
-button = tk.Button(root, text='Open', command=UploadAction)
+button = tk.Button(root, text='Cancel')
+button.pack()
+
+#Creates a button, placed in root window
+button = tk.Button(root, text='Select Key File', command=Keyfile)
+button.pack()
+
+#Creates a button, placed in root window
+button = tk.Button(root, text='Enter', command=Enter)
 button.pack()
 
 
