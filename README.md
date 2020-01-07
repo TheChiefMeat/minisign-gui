@@ -2,6 +2,8 @@
 
 **A Minimal Minisign GUI.**
 
+![minisign-gui preview image](https://raw.githubusercontent.com/TheChiefMeat/minisign-gui/master/assets/preview.png)
+
 ## Usage
 
 Simply run the minisign-gui.exe. From here you can create a key, use existing keys, verify signed files, and sign files.
