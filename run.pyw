@@ -16,6 +16,10 @@ def CloseCreate():
     create.destroy()
 
 #Creates Minisign key
+def CreateKey():
+    KeyString = e1.get()
+    os.system('cmd /c "start "" minisign -G -p minisign-keys/"' + KeyString + '".pub -s minisign-keys/"' + KeyString + '".key"')
+
 def Create():
     #Need new window to select custom path and names for keyfile
     global create
@@ -26,11 +30,12 @@ def Create():
 
     tk.Label(create, text="Enter Keyfile Name") .grid(row=0, column=0)
 
+    global e1
     e1 = tk.Entry(create)
     e1.grid(row=0, column=1)
 
     #Creates a button, placed in create window
-    tk.Button(create, text='Create') .grid(row=0, column=3)
+    tk.Button(create, text='Create', command=CreateKey) .grid(row=0, column=3)
 
     #Creates a button, placed in create window
     tk.Button(create, text='Cancel', command=CloseCreate) .grid(row=0, column=4)
