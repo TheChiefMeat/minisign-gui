@@ -5,36 +5,23 @@ from tkinter import filedialog
 # create the application and the main window
 root = tk.Tk()
 root.title("Minisign Verify")
-root.minsize(400,100)
-root.maxsize(400,100)
+root.minsize(500,100)
+root.maxsize(500,100)
 
 #Close program functions
 def Close(): 
     root.destroy()
     create.destroy()
-    KeyInfo.destroy()
     
 def CloseCreate():
     create.destroy()
-    KeyInfo.destroy()
 
 #Creates Minisign key
 def CreateKey():
     KeyString = e1.get()
     os.system('cmd /c "start "" minisign -G -p minisign-keys/"' + KeyString + '".pub -s minisign-keys/"' + KeyString + '".key"')
 
-    global KeyInfo
-    KeyInfo = tk.Tk()
-    KeyInfo.title("Minisign Verify")
-    KeyInfo.minsize(500,200)
-    KeyInfo.maxsize(500,200)
-
-    T = tk.Text(KeyInfo, height=2, width=30)
-    T.pack(side="left", fill="both", expand="true")
-    T.insert(tk.END, "Key created successfully!\nYou can find your key in the minisign-keys folder.")
-
 def Create():
-    #Need new window to select custom path and names for keyfile
     global create
     create = tk.Tk()
     create.title("Minisign Verify")
@@ -54,14 +41,23 @@ def Create():
     tk.Button(create, text='Cancel', command=CloseCreate) .grid(row=0, column=4)
 
 #Select file for upload
-def Keyfile(event=None):
-    global filename
-    filename = filedialog.askopenfilename()
-    print('Selected:', filename)
+def Select(event=None):
+    global Keyfile
+    Keyfile = filedialog.askopenfilename(filetypes=[("Minisign Public Key", "*.pub"), ("Minisign Private Key", "*.key")])
+    print('Selected:', Keyfile)
 
-#Runs selected file
-def Enter():
-    os.system('cmd /c "start "" ' + r'"' + filename + '"')
+def Sign():
+    global SignedFile
+    SignedFile = filedialog.askopenfilename(filetypes=[("Select file to sign", "*")])
+    os.system('cmd /c "start "" minisign -Sm ' + '"' + SignedFile + '"' + ' -s ' + '"' + Keyfile + '"')
+    print('Selected:', SignedFile)
+
+#Verifies selected file
+def Verify():
+    global VerifyFile
+    VerifyFile = filedialog.askopenfilename(filetypes=[("Select file to verify", "*")])
+    os.system('cmd /k "minisign -Vm ' + '"' + VerifyFile + '"' + ' -p ' + '"' + Keyfile + '"')
+    print('Selected:', VerifyFile)
 
 #Creates a button, placed in root window
 button = tk.Button(root, text='Cancel', command=Close)
@@ -72,13 +68,34 @@ button = tk.Button(root, text='Create', command=Create)
 button.pack(side="left", fill="both", expand="true")
 
 #Creates a button, placed in root window
-button = tk.Button(root, text='Select Key File', command=Keyfile)
+button = tk.Button(root, text='Select', command=Select)
+button.pack(side="left", fill="both", expand="true")
+
+#Creates a button, placed in root window
+button = tk.Button(root, text='Sign', command=Sign)
 button.pack(side="left", fill="both", expand="true")
 
 
 #Creates a button, placed in root window
-button = tk.Button(root, text='Enter', command=Enter)
+button = tk.Button(root, text='Verify', command=Verify)
 button.pack(side="left", fill="both", expand="true")
+
+#Below lines ensure program starts in the center of the screen
+
+w = 500 # width for the Tk root
+h = 100 # height for the Tk root
+
+# get screen width and height
+ws = root.winfo_screenwidth() # width of the screen
+hs = root.winfo_screenheight() # height of the screen
+
+# calculate x and y coordinates for the Tk root window
+x = (ws/2) - (w/2)
+y = (hs/2) - (h/2)
+
+# set the dimensions of the screen 
+# and where it is placed
+root.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
 # Shows Main Window
 root.mainloop()
