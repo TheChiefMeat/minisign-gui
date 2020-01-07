@@ -4,7 +4,7 @@ from tkinter import filedialog
 
 # create the application and the main window
 root = tk.Tk()
-root.title("Minisign Verify")
+root.title("Minisign GUI")
 root.minsize(500,100)
 root.maxsize(500,100)
 
@@ -24,7 +24,7 @@ def CreateKey():
 def Create():
     global create
     create = tk.Tk()
-    create.title("Minisign Verify")
+    create.title("Minisign GUI")
     create.minsize(322,26)
     create.maxsize(322,26)
 
