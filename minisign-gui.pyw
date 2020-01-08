@@ -5,8 +5,8 @@ from tkinter import filedialog
 # create the application and the main window
 root = tk.Tk()
 root.title("Minisign GUI")
-root.minsize(500,100)
-root.maxsize(500,100)
+root.minsize(500,60)
+root.maxsize(500,60)
 root.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
 
 #Close program functions
