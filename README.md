@@ -10,7 +10,7 @@ Simply run the minisign-gui.exe. From here you can create a key, use existing ke
 
 ## Installation
 
-Ensure that [Minisign](https://github.com/jedisct1/minisign) is available in your PATH directory.
+Ensure that [Minisign](https://github.com/jedisct1/minisign) is available in your PATH directory. Currently Minisign-gui is only available for Windows, Linux support is coming soon.
 
 Simply download the .zip file for your operating system from the [latest release page](https://github.com/TheChiefMeat/minisign-gui/releases/latest) and unzip the program to a folder of your choice.
 
