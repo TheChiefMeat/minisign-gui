@@ -12,7 +12,7 @@ Generated keys can be found in the minisign-keys folder that is generated upon k
 
 ## Installation
 
-Ensure that [Minisign](https://github.com/jedisct1/minisign) is available in your PATH directory. Currently Minisign-gui is only available for Windows, Linux support is coming soon.
+Ensure that [Minisign](https://github.com/jedisct1/minisign) is available in your PATH directory. Currently Minisign-gui is only available for Windows and Linux.
 
 Simply download the .zip file for your operating system from the [latest release page](https://github.com/TheChiefMeat/minisign-gui/releases/latest) and unzip the program to a folder of your choice.
 
