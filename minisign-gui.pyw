@@ -7,7 +7,7 @@ root = tk.Tk()
 root.title("Minisign GUI")
 root.minsize(500,60)
 root.maxsize(500,60)
-root.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
+#root.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
 
 #Close program functions
 def Close(): 
@@ -20,15 +20,15 @@ def CloseCreate():
 #Creates Minisign key
 def CreateKey():
     KeyString = e1.get()
-    os.system('cmd /c "start "" minisign -G -p minisign-keys/"' + KeyString + '".pub -s minisign-keys/"' + KeyString + '".key"')
+    os.system('minisign -G -p minisign-keys/' + '"' + KeyString + '"' + '.pub -s minisign-keys/' + '"' + KeyString + '"' + '.key')
 
 def Create():
     global create
     create = tk.Tk()
     create.title("Minisign GUI")
-    create.minsize(322,26)
-    create.maxsize(322,26)
-    create.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
+    create.minsize(500,26)
+    create.maxsize(500,26)
+    #create.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
 
 
     tk.Label(create, text="Enter Keyfile Name") .grid(row=0, column=0)
@@ -52,14 +52,14 @@ def Select(event=None):
 def Sign():
     global SignedFile
     SignedFile = filedialog.askopenfilename(filetypes=[("Select file to sign", "*")])
-    os.system('cmd /c "start "" minisign -Sm ' + '"' + SignedFile + '"' + ' -s ' + '"' + Keyfile + '"')
+    os.system('minisign -Sm ' + '"' + SignedFile + '"' + ' -s ' + '"' + Keyfile + '"')
     print('Selected:', SignedFile)
 
 #Verifies selected file
 def Verify():
     global VerifyFile
     VerifyFile = filedialog.askopenfilename(filetypes=[("Select file to verify", "*")])
-    os.system('cmd /k "minisign -Vm ' + '"' + VerifyFile + '"' + ' -p ' + '"' + Keyfile + '"')
+    os.system('minisign -Vm ' + '"' + VerifyFile + '"' + ' -p ' + '"' + Keyfile + '"')
     print('Selected:', VerifyFile)
 
 #Creates a button, placed in root window
