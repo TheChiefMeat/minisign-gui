@@ -7,7 +7,7 @@ root = tk.Tk()
 root.title("Minisign GUI")
 root.minsize(500,60)
 root.maxsize(500,60)
-root.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
+#root.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
 
 #Close program functions
 def Close(): 
@@ -28,7 +28,7 @@ def Create():
     create.title("Minisign GUI")
     create.minsize(322,26)
     create.maxsize(322,26)
-    create.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
+    #create.iconbitmap(r'C:\Users\TheChiefMeat\Documents\Git\minisign-gui\assets\app.ico')
 
 
     tk.Label(create, text="Enter Keyfile Name") .grid(row=0, column=0)
