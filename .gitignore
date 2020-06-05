@@ -8,3 +8,4 @@ minisign-gui.spec
 build.bat
 *.key
 *.pub
+*.zip
