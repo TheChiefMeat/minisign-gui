@@ -4,9 +4,15 @@
 
 ![minisign-gui preview image](https://raw.githubusercontent.com/TheChiefMeat/minisign-gui/master/assets/preview.png)
 
+# Requirements
+
+Python 3.8 or above and python3-tk
+
 ## Usage
 
-Simply run the minisign-gui.exe. From here you can create a key, use existing keys, verify signed files, and sign files.
+Make the minisign-gui.pyw to be executable.
+
+Open a terminal and run `python3.8 minisign-gui.pyw` From here you can create a key, use existing keys, verify signed files, and sign files.
 
 Generated keys can be found in the minisign-keys folder that is generated upon key creation, this folder will be located next to the executable.
 
